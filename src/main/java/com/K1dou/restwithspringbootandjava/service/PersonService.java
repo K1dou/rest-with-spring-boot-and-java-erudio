@@ -1,17 +1,21 @@
 package com.K1dou.restwithspringbootandjava.service;
 
-import com.K1dou.restwithspringbootandjava.dto.PersonUpdateDTO;
+import com.K1dou.restwithspringbootandjava.dto.personv1.PersonUpdateDTO;
+import com.K1dou.restwithspringbootandjava.dto.personv2.PersonDTOV2;
 import com.K1dou.restwithspringbootandjava.entity.Person;
 import com.K1dou.restwithspringbootandjava.exception.ResourceNotFoundException;
-import com.K1dou.restwithspringbootandjava.records.PersonRecord;
 import com.K1dou.restwithspringbootandjava.repository.PersonRepository;
-import com.K1dou.restwithspringbootandjava.dto.PersonDTO;
+import com.K1dou.restwithspringbootandjava.dto.personv1.PersonDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonService {
@@ -22,20 +26,36 @@ public class PersonService {
     @Autowired
     private ModelMapper modelMapper;
 
-
-    public Person criar(PersonDTO dto) {
+    public PersonDTO criar(PersonDTO dto) {
         Person person = new Person();
         modelMapper.map(dto, person);
         personRepository.save(person);
-        return person;
+        PersonDTO personDTO = new PersonDTO();
+        modelMapper.map(person, personDTO);
+        return personDTO;
     }
 
-    public Person buscar(Long id) {
-        return personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID NÃO ENCONTRADO."));
+    public PersonDTOV2 criarV2(PersonDTOV2 dto) {
+        Person person = new Person();
+        modelMapper.map(dto, person);
+        personRepository.save(person);
+        PersonDTOV2 personDTOV2 = new PersonDTOV2();
+        modelMapper.map(person, personDTOV2);
+        return personDTOV2;
     }
 
-    public List<Person> todosPerson() {
-        return personRepository.findAll();
+    public PersonDTO buscar(Long id) {
+        Person person = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID NÃO ENCONTRADO."));
+        PersonDTO personDTO = new PersonDTO();
+        modelMapper.map(person, personDTO);
+        return personDTO;
+    }
+
+    public List<PersonDTO> todosPerson() {
+        List<Person> p = personRepository.findAll();
+        List<PersonDTO> pDTO = p.stream().map(person -> new PersonDTO(person.getId(), person.getFistName(), person.getLastName(), person.getAddress(), person.getGender()))
+                .collect(Collectors.toList());
+        return pDTO;
     }
 
     public void delete(Long id) {
@@ -43,12 +63,14 @@ public class PersonService {
         personRepository.deleteById(id);
     }
 
-    public Person update(PersonUpdateDTO dto) {
+    public PersonDTO update(PersonUpdateDTO dto) {
         Long idPerson = dto.getId();
         Person person = personRepository.findById(idPerson).orElseThrow(() -> new ResourceNotFoundException("ID NÃO ENCONTRADO."));
         modelMapper.map(dto, person);
         personRepository.save(person);
-        return person;
+        PersonDTO personDTO = new PersonDTO();
+        modelMapper.map(person, personDTO);
+        return personDTO;
     }
 
 

@@ -10,19 +10,10 @@ public class ExceptionResponseBody {
     private HttpStatus status;
 
 
-
-
-
-
-
-
-
-
-
     public ExceptionResponseBody(String erro, Date date, HttpStatus status) {
         this.erro = erro;
         this.date = date;
-        this.status=status;
+        this.status = status;
     }
 
     public ExceptionResponseBody() {

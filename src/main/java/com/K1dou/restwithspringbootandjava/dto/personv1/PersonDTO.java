@@ -1,12 +1,18 @@
-package com.K1dou.restwithspringbootandjava.dto;
+package com.K1dou.restwithspringbootandjava.dto.personv1;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 
-public class PersonDTO {
+import java.io.Serial;
+import java.io.Serializable;
 
+@JsonPropertyOrder({"id","fistName","lastName","address","gender"})
+public class PersonDTO implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -7082268321854310714L;
+
+    private Long id;
     @NotBlank(message = "Campo Fist Name obrigatório")
     private String fistName;
     @NotBlank(message = "Campo Last Name obrigatório")
@@ -15,7 +21,8 @@ public class PersonDTO {
     private String gender;
 
 
-    public PersonDTO(String fistName, String lastName, String address, String gender) {
+    public PersonDTO(Long id, String fistName, String lastName, String address, String gender) {
+        this.id = id;
         this.fistName = fistName;
         this.lastName = lastName;
         this.address = address;
@@ -23,6 +30,11 @@ public class PersonDTO {
     }
 
     public PersonDTO() {
+    }
+
+
+    public PersonDTO(Long id) {
+        this.id = id;
     }
 
     public String getAddress() {
@@ -55,5 +67,13 @@ public class PersonDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

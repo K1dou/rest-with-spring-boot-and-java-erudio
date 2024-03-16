@@ -25,13 +25,9 @@ public class Person implements Serializable {
     private String gender;
 
 
-
-
-
-
-
     public Person() {
     }
+
 
     public Person(Long id, String fistName, String lastName, String address, String gender) {
         this.id = id;
@@ -39,6 +35,7 @@ public class Person implements Serializable {
         this.lastName = lastName;
         this.address = address;
         this.gender = gender;
+
     }
 
     public Long getId() {
@@ -93,4 +90,6 @@ public class Person implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

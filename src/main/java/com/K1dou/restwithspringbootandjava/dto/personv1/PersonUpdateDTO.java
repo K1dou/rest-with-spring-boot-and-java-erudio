@@ -1,12 +1,13 @@
-package com.K1dou.restwithspringbootandjava.dto;
+package com.K1dou.restwithspringbootandjava.dto.personv1;
 
 import jakarta.validation.constraints.NotBlank;
 
 public class PersonUpdateDTO {
 
 
-    @NotBlank(message = "Campo Last Name obrigatório")
+
     private Long id;
+    @NotBlank(message = "Campo Last Name obrigatório")
     private String lastName;
     private String address;
 
