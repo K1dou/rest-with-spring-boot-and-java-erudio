@@ -1,4 +1,4 @@
-package com.K1dou.restwithspringbootandjava.dto.personv2;
+package com.K1dou.restwithspringbootandjava.dto.person.personv1.personv2;
 
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;

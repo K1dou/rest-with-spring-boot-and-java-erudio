@@ -1,9 +1,10 @@
 package com.K1dou.restwithspringbootandjava.controller;
 
-import com.K1dou.restwithspringbootandjava.dto.personv1.PersonDTO;
-import com.K1dou.restwithspringbootandjava.dto.personv1.PersonUpdateDTO;
-import com.K1dou.restwithspringbootandjava.dto.personv2.PersonDTOV2;
+import com.K1dou.restwithspringbootandjava.dto.person.personv1.PersonDTO;
+import com.K1dou.restwithspringbootandjava.dto.person.personv1.PersonUpdateDTO;
+import com.K1dou.restwithspringbootandjava.dto.person.personv1.personv2.PersonDTOV2;
 import com.K1dou.restwithspringbootandjava.service.PersonService;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,9 +27,11 @@ public class PersonController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.FOUND)
-    private PersonDTO getPerson(@PathVariable Long id) {
+    public PersonDTO getPerson(@PathVariable Long id) {
+
         return personService.buscar(id);
     }
+
 
     @GetMapping
     @ResponseStatus(HttpStatus.FOUND)
@@ -51,7 +54,7 @@ public class PersonController {
     }
 
 
-    @PostMapping("/api/person/v1")
+    @PostMapping("/api/person/v2")
     @ResponseStatus(HttpStatus.CREATED)
     private PersonDTOV2 PostPerson(@RequestBody @Valid PersonDTOV2 dto) {
         return personService.criarV2(dto);

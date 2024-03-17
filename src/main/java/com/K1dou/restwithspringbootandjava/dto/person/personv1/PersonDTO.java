@@ -1,18 +1,21 @@
-package com.K1dou.restwithspringbootandjava.dto.personv1;
+package com.K1dou.restwithspringbootandjava.dto.person.personv1;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @JsonPropertyOrder({"id","fistName","lastName","address","gender"})
-public class PersonDTO implements Serializable {
+public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
 
     @Serial
     private static final long serialVersionUID = -7082268321854310714L;
 
-    private Long id;
+    @JsonProperty("id")
+    private Long key;
     @NotBlank(message = "Campo Fist Name obrigatório")
     private String fistName;
     @NotBlank(message = "Campo Last Name obrigatório")
@@ -21,8 +24,8 @@ public class PersonDTO implements Serializable {
     private String gender;
 
 
-    public PersonDTO(Long id, String fistName, String lastName, String address, String gender) {
-        this.id = id;
+    public PersonDTO(Long key, String fistName, String lastName, String address, String gender) {
+        this.key = key;
         this.fistName = fistName;
         this.lastName = lastName;
         this.address = address;
@@ -33,8 +36,8 @@ public class PersonDTO implements Serializable {
     }
 
 
-    public PersonDTO(Long id) {
-        this.id = id;
+    public PersonDTO(Long key) {
+        this.key = key;
     }
 
     public String getAddress() {
@@ -69,11 +72,11 @@ public class PersonDTO implements Serializable {
         this.lastName = lastName;
     }
 
-    public Long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 }
