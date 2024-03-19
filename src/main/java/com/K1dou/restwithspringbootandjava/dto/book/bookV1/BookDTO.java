@@ -1,6 +1,5 @@
-package com.K1dou.restwithspringbootandjava.dto.book.bookv1;
+package com.K1dou.restwithspringbootandjava.dto.book.bookV1;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.hateoas.RepresentationModel;

@@ -1,6 +1,6 @@
 package com.K1dou.restwithspringbootandjava.controller;
 
-import com.K1dou.restwithspringbootandjava.dto.book.bookv1.BookDTO;
+import com.K1dou.restwithspringbootandjava.dto.book.bookV1.BookDTO;
 import com.K1dou.restwithspringbootandjava.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

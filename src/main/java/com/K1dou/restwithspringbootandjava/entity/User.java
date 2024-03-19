@@ -23,7 +23,7 @@ public class User implements Serializable, UserDetails {
     private Long id;
 
     @Column(name = "user_name",unique = true)
-    private String userName;gis 
+    private String userName;
     @Column(name = "full_name")
     private String fullName;
     private String password;

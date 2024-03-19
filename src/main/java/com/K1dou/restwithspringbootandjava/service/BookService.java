@@ -1,7 +1,7 @@
 package com.K1dou.restwithspringbootandjava.service;
 
 import com.K1dou.restwithspringbootandjava.controller.BookController;
-import com.K1dou.restwithspringbootandjava.dto.book.bookv1.BookDTO;
+import com.K1dou.restwithspringbootandjava.dto.book.bookV1.BookDTO;
 import com.K1dou.restwithspringbootandjava.entity.Book;
 import com.K1dou.restwithspringbootandjava.exception.ResourceNotFoundException;
 import com.K1dou.restwithspringbootandjava.repository.BookRepository;
@@ -9,7 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;

@@ -1,12 +1,12 @@
 package com.K1dou.restwithspringbootandjava.service;
 
 import com.K1dou.restwithspringbootandjava.controller.PersonController;
-import com.K1dou.restwithspringbootandjava.dto.person.personv1.PersonUpdateDTO;
-import com.K1dou.restwithspringbootandjava.dto.person.personv1.personv2.PersonDTOV2;
+import com.K1dou.restwithspringbootandjava.dto.person.personV1.PersonUpdateDTO;
+import com.K1dou.restwithspringbootandjava.dto.person.personV1.personV2.PersonDTOV2;
 import com.K1dou.restwithspringbootandjava.entity.Person;
 import com.K1dou.restwithspringbootandjava.exception.ResourceNotFoundException;
 import com.K1dou.restwithspringbootandjava.repository.PersonRepository;
-import com.K1dou.restwithspringbootandjava.dto.person.personv1.PersonDTO;
+import com.K1dou.restwithspringbootandjava.dto.person.personV1.PersonDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

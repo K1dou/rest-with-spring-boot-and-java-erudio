@@ -34,6 +34,12 @@ public class ExceptionController {
         ExceptionResponseBean exceptionResponseBody = new ExceptionResponseBean(e);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponseBody);
     }
+ @ExceptionHandler(InvalidJwtAuthenticationException.class)
+    private ResponseEntity<ExceptionResponseBody> handleInvalidJwtAuthenticationException(InvalidJwtAuthenticationException ex) {
+     ExceptionResponseBody exceptionResponseBody = new ExceptionResponseBody(ex.getMessage(), new Date(),HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(exceptionResponseBody);
+    }
 
 
 }

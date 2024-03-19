@@ -1,4 +1,4 @@
-package com.K1dou.restwithspringbootandjava.dto.person.personv1;
+package com.K1dou.restwithspringbootandjava.dto.person.personV1;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package com.K1dou.restwithspringbootandjava.dto.person.personv1;
+package com.K1dou.restwithspringbootandjava.dto.person.personV1;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
